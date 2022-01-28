@@ -7,7 +7,7 @@ export default () => {
 
   return (
     <div className="d-flex justify-content-center">
-      <h1>Home page</h1>
+      <h1>Profile page</h1>
     </div>
   )
 }
