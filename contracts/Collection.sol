@@ -66,8 +66,8 @@ contract Collection is ERC721URIStorage {
         uint256 count = 1;
         uint256 collectionIndex = 0;
         for (
-            uint256 i = 0;
-            i < collectionCount && collectionIndex < perPage;
+            uint256 i = 1;
+            i <= collectionCount && collectionIndex < perPage;
             i++
         ) {
             CollectionStruct storage collection = collections[i];
@@ -94,8 +94,8 @@ contract Collection is ERC721URIStorage {
         uint256 count = 1;
         uint256 collectionIndex = 0;
         for (
-            uint256 i = 0;
-            i < collectionCount && collectionIndex < perPage;
+            uint256 i = 1;
+            i <= collectionCount && collectionIndex < perPage;
             i++
         ) {
             CollectionStruct storage collection = collections[i];

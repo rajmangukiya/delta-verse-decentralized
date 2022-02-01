@@ -25,6 +25,13 @@ contract NFT is ERC721URIStorage {
         contractAddress = marketplaceAddress;
     }
 
+    function transferOwnerFrom(
+        address to,
+        uint256 tokenId
+    ) public {
+        tokenIdToToken[tokenId].owner = to;
+    }
+
     function createToken(string memory tokenURI, uint256 collectionId) public returns (uint) {
         _tokenIds.increment();
         uint256 newItemId = _tokenIds.current();
@@ -39,7 +46,7 @@ contract NFT is ERC721URIStorage {
         return newItemId;
     }
 
-    function fetchMyTokens(uint256 tokenCount, uint256 perPage, uint pageNo) public view virtual returns (NFTStruct[] memory) {
+    function fetchMyTokens(uint256 perPage, uint pageNo) public view virtual returns (NFTStruct[] memory) {
         NFTStruct[] memory myTokens = new NFTStruct[](
             perPage
         );
@@ -47,7 +54,7 @@ contract NFT is ERC721URIStorage {
         uint256 tokenIndex = 0;
         for (
             uint256 i = 0;
-            i < tokenCount && tokenIndex < perPage;
+            i <= _tokenIds.current() && tokenIndex < perPage;
             i++
         ) {
             if (tokenIdToToken[i].owner == msg.sender) {
@@ -61,15 +68,15 @@ contract NFT is ERC721URIStorage {
         return myTokens;
     }
 
-    function fetchMyCollectionTokens(uint256 tokenCount, uint256 collectionId, uint256 perPage, uint pageNo) public view virtual returns (NFTStruct[] memory) {
+    function fetchMyCollectionTokens(uint256 collectionId, uint256 perPage, uint pageNo) public view virtual returns (NFTStruct[] memory) {
         NFTStruct[] memory myTokens = new NFTStruct[](
             perPage
         );
         uint256 count = 1;
         uint256 tokenIndex = 0;
         for (
-            uint256 i = 0;
-            i < tokenCount && tokenIndex < perPage;
+            uint256 i = 1;
+            i <= _tokenIds.current() && tokenIndex < perPage;
             i++
         ) {
             if (tokenIdToToken[i].owner == msg.sender && tokenIdToToken[i].collectionId == collectionId) {
@@ -81,5 +88,9 @@ contract NFT is ERC721URIStorage {
             }
         }
         return myTokens;
+    }
+
+    function getCollectionId (uint256 tokenId) public view returns (uint256) {
+        return tokenIdToToken[tokenId].collectionId;
     }
 }
