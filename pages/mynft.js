@@ -10,7 +10,7 @@ import Collection from './Collection';
 import Navbar from './Navbar';
 import Creation from './Creation';
 
-export default function profile () {
+export default function mynft () {
   return (
     <div class="bg-dark">
       <Navbar />

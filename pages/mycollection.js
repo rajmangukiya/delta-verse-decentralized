@@ -10,7 +10,7 @@ import Collection from './Collection';
 import Navbar from './Navbar';
 import Creation from './Creation';
 
-export default function profile () {
+export default function mycollection () {
   return (
     <div class="bg-dark">
       <Navbar />
@@ -55,7 +55,7 @@ export default function profile () {
         </div>
       </div>
       
-      <Creation />
+      <Collection />
     </div> 
   )
 }
