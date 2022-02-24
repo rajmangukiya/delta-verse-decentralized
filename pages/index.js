@@ -22,9 +22,9 @@ export default () => {
       <div class="container w-75">
         <div class="row">
           <div class="col m-auto p-auto">
-            <h1 class="primary text-primary">
+            <h1 class="primary text-primary fs-1">
                 Create, Buy & Sell Awesome Arts <br/>
-                <small class="text-muted ">
+                <small class="text-muted fs-2">
                   Delta Verse is a virtual market place to sell and buy art works
                 </small>
             </h1>
@@ -46,19 +46,19 @@ export default () => {
               </div>
             </div>
           </div>
-        <div class="col p-auto m-auto d-flex justify-content-end ">
+        <div class="col p-auto m-auto d-flex justify-content-end">
       <div class="card w-75 h-75">
       <Image
-        src = {require('../images/art.jpg')}
+        src = {require('../images/index.jpg')}
         alt="Picture of the author"
         width={500}
         height={500}
       />
-      <div class="card-body bg-dark justify-content-between">
+      <div class="card-body bg-dark">
       <Link href="/">
         <a class="navbar-brand text-light px-3 mx-2">
           <Image
-            src = {require('../images/art.jpg')}
+            src = {require('../images/index_1.png')}
             alt="Picture of the author"
             width={30}
             height={30}
@@ -69,7 +69,7 @@ export default () => {
       <a class="navbar-brand text-light px-3 mx-2">
         10.0
           <Image
-            src = {require('../images/art.jpg')}
+            src = {require('../images/eth.png')}
             alt="Picture of the author"
             width={30}
             height={30}
@@ -83,7 +83,7 @@ export default () => {
 {/* ---------------------------------------------- */}
 
   <div class="my-5">
-    <h1 class="text-center text-light">Browse by category</h1>
+    <h1 class="text-center text-light fs-2">Browse by category</h1>
   </div>
 
 {/* ------------------------------------------------ */}
@@ -94,8 +94,8 @@ export default () => {
     <Image
       src = {require('../images/art.jpg')}
       alt="Picture of the author"
-      width={500}
-      height={500}
+      // width={500}
+      // height={500}
     />
       {/* <img src={i} class="card-img-top" alt="..." /> */}
       <div class="card-body bg-dark">
@@ -106,10 +106,10 @@ export default () => {
   <div class="col">
     <div class="card">
     <Image
-      src = {require('../images/art.jpg')}
+      src = {require('../images/music.jpg')}
       alt="Picture of the author"
-      width={500}
-      height={500}
+      // width={500}
+      // height={500}
     />
       <div class="card-body bg-dark">
         <h5 class="card-title text-center text-light">Music</h5>
@@ -120,23 +120,10 @@ export default () => {
   <div class="col">
     <div class="card">
     <Image
-      src = {require('../images/art.jpg')}
+      src = {require('../images/photography.jpg')}
       alt="Picture of the author"
-      width={500}
-      height={500}
-    />
-    <div class="card-body bg-dark">
-        <h5 class="card-title text-center text-light">Sports</h5>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-    <Image
-      src = {require('../images/art.jpg')}
-      alt="Picture of the author"
-      width={500}
-      height={500}
+      // width={500}
+      // height={500}
     />
     <div class="card-body bg-dark">
         <h5 class="card-title text-center text-light">Photography</h5>
@@ -146,10 +133,23 @@ export default () => {
   <div class="col">
     <div class="card">
     <Image
-      src = {require('../images/art.jpg')}
+      src = {require('../images/sports.jpg')}
       alt="Picture of the author"
-      width={500}
-      height={500}
+      // width={500}
+      // height={500}
+    />
+    <div class="card-body bg-dark">
+        <h5 class="card-title text-center text-light">Sports</h5>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+    <Image
+      src = {require('../images/collectibles.png')}
+      alt="Picture of the author"
+      // width={500}
+      // height={500}
     />
       <div class="card-body bg-dark">
         <h5 class="card-title text-center text-light">Collectibles</h5>
@@ -159,10 +159,10 @@ export default () => {
   <div class="col">
     <div class="card">
     <Image
-      src = {require('../images/art.jpg')}
+      src = {require('../images/domain.jpg')}
       alt="Picture of the author"
-      width={500}
-      height={500}
+      // width={500}
+      // height={500}
     />
     <div class="card-body bg-dark">
         <h5 class="card-title text-center text-light">Domain Names</h5>

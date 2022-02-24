@@ -14,7 +14,7 @@ export default function Creation() {
           <div class="col">
             <div class="card bg-dark border-primary">
               <Image
-                src = {require('../images/art.jpg')}
+                src = {require('../images/nft_7.png')}
                 alt="Picture of the author"
                 width={500}
                 height={500}
@@ -38,7 +38,7 @@ export default function Creation() {
           <div class="col">
             <div class="card bg-dark border-primary">
               <Image
-                src = {require('../images/art.jpg')}
+                src = {require('../images/nft_8.jpg')}
                 alt="Picture of the author"
                 width={500}
                 height={500}
@@ -61,7 +61,7 @@ export default function Creation() {
           <div class="col">
             <div class="card bg-dark border-primary">
               <Image
-                src = {require('../images/art.jpg')}
+                src = {require('../images/nft_1.jpg')}
                 alt="Picture of the author"
                 width={500}
                 height={500}
@@ -84,7 +84,7 @@ export default function Creation() {
           <div class="col my-3">
             <div class="card bg-dark border-primary">
               <Image
-                src = {require('../images/art.jpg')}
+                src = {require('../images/nft_10.png')}
                 alt="Picture of the author"
                 width={500}
                 height={500}
@@ -107,7 +107,7 @@ export default function Creation() {
           <div class="col my-3">
             <div class="card bg-dark border-primary">
               <Image
-                src = {require('../images/art.jpg')}
+                src = {require('../images/nft_2.jpg')}
                 alt="Picture of the author"
                 width={500}
                 height={500}
@@ -130,7 +130,7 @@ export default function Creation() {
           <div class="col my-3">
             <div class="card bg-dark border-primary">
             <Image
-              src = {require('../images/art.jpg')}
+              src = {require('../images/nft_3.jpg')}
               alt="Picture of the author"
               width={500}
               height={500}

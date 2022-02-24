@@ -35,10 +35,10 @@ export default function nftinfo () {
         <div class="col my-3">
             <div class="card bg-dark border-primary">
                 <Image
-                    src = {require('../images/art.jpg')}
+                    src = {require('../images/allmonkey.jpg')}
                     alt="Picture of the author"
-                    width={500}
-                    height={500}
+                    // width={500}
+                    // height={500}
                     class="card-img-top"
                 />
                 <Image 

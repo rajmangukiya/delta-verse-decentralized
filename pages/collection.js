@@ -14,7 +14,7 @@ export default function Collection() {
           <div class="col">
             <div class="card">
               <Image
-                src = {require('../images/art.jpg')}
+                src = {require('../images/nft_1.jpg')}
                 alt="Picture of the author"
                 width={500}
                 height={500}
@@ -30,7 +30,7 @@ export default function Collection() {
                       <h6 class="card-title text-light">Price</h6>
                       <h6 class="card-subtitle mx-2 text-muted">100.00 
                         <Image
-                            src = {require('../images/art.jpg')}
+                            src = {require('../images/eth.png')}
                             alt="Picture of the author"
                             width={30}
                             height={30}
@@ -45,7 +45,7 @@ export default function Collection() {
           <div class="col">
             <div class="card">
               <Image
-                src = {require('../images/art.jpg')}
+                src = {require('../images/nft_2.jpg')}
                 alt="Picture of the author"
                 width={500}
                 height={500}
@@ -61,7 +61,7 @@ export default function Collection() {
                       <h6 class="card-title text-light">Price</h6>
                       <h6 class="card-subtitle mx-2 text-muted">100.00 
                         <Image
-                            src = {require('../images/art.jpg')}
+                            src = {require('../images/eth.png')}
                             alt="Picture of the author"
                             width={30}
                             height={30}
@@ -76,7 +76,7 @@ export default function Collection() {
           <div class="col">
             <div class="card">
               <Image
-                src = {require('../images/art.jpg')}
+                src = {require('../images/nft_3.jpg')}
                 alt="Picture of the author"
                 width={500}
                 height={500}
@@ -92,7 +92,7 @@ export default function Collection() {
                       <h6 class="card-title text-light">Price</h6>
                       <h6 class="card-subtitle mx-2 text-muted">100.00 
                         <Image
-                            src = {require('../images/art.jpg')}
+                            src = {require('../images/eth.png')}
                             alt="Picture of the author"
                             width={30}
                             height={30}
@@ -107,7 +107,7 @@ export default function Collection() {
           <div class="col">
             <div class="card">
               <Image
-                src = {require('../images/art.jpg')}
+                src = {require('../images/nft_4.jpg')}
                 alt="Picture of the author"
                 width={500}
                 height={500}
@@ -123,7 +123,7 @@ export default function Collection() {
                       <h6 class="card-title text-light">Price</h6>
                       <h6 class="card-subtitle mx-2 text-muted">100.00 
                         <Image
-                          src = {require('../images/art.jpg')}
+                          src = {require('../images/eth.png')}
                           alt="Picture of the author"
                           width={30}
                           height={30}
@@ -138,7 +138,7 @@ export default function Collection() {
           <div class="col">
             <div class="card">
               <Image
-                src = {require('../images/art.jpg')}
+                src = {require('../images/nft_5.jpg')}
                 alt="Picture of the author"
                 width={500}
                 height={500}
@@ -154,7 +154,7 @@ export default function Collection() {
                       <h6 class="card-title text-light">Price</h6>
                       <h6 class="card-subtitle mx-2 text-muted">100.00 
                         <Image
-                          src = {require('../images/art.jpg')}
+                          src = {require('../images/eth.png')}
                           alt="Picture of the author"
                           width={30}
                           height={30}
@@ -169,7 +169,7 @@ export default function Collection() {
           <div class="col">
             <div class="card">
               <Image
-                src = {require('../images/art.jpg')}
+                src = {require('../images/nft_6.jpg')}
                 alt="Picture of the author"
                 width={500}
                 height={500}
@@ -185,7 +185,7 @@ export default function Collection() {
                       <h6 class="card-title text-light">Price</h6>
                       <h6 class="card-subtitle mx-2 text-muted">100.00 
                         <Image
-                          src = {require('../images/art.jpg')}
+                          src = {require('../images/eth.png')}
                           alt="Picture of the author"
                           width={30}
                           height={30}

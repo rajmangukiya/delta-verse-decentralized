@@ -27,7 +27,7 @@ export default function nft() {
                     <div class="col-sm-10">
                         <label role="button" tabindex="0" for="image" class="col-sm-2 col-form-label">
                         <Image
-                            src = {logo}
+                            src = {require('../images/MetaMask_Fox.png')}
                             alt="Picture of the author"
                             width={100}
                             height={100}

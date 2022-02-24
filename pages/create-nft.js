@@ -20,12 +20,12 @@ export default function Create() {
                             <small class="text-muted ">to use this functionality <br />no account? create new one</small>
                         </h1>
                         <Link href="/nft">
-                            <a class="btn btn-primary border-primary px-5" type="button">
+                            <a class="btn btn-primary border-primary px-4" type="button">
                             <Image
-                                src = {l}
+                                src = {require('../images/MetaMask_Fox.png')}
                                 alt="Picture of the author"
-                                width={30}
-                                height={30}
+                                width={50}
+                                height={50}
                                 class="d-inline-block align-text-top"
                             />
                            MetaMask

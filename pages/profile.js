@@ -16,7 +16,7 @@ export default function profile () {
       <Navbar />
       <div class="card my-5 py-5">
         <Image
-          src = {require('../images/land.jpg')}
+          src = {require('../images/wallpaper.jpg')}
           alt="Picture of the author"
           width={500}
           height={500}

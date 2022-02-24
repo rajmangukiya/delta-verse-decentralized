@@ -45,7 +45,7 @@ export default function Explore() {
                 class="card-img-top"
               />
               <Image
-                src = {require('../images/art.jpg')}
+                src = {require('../images/nft_1.jpg')}
                 alt="Picture of the author"
                 width={100}
                 height={100}
@@ -68,7 +68,7 @@ export default function Explore() {
                 height={500}
                 class="card-img-top"
               />
-              <Image src={require('../images/music.jpg')} 
+              <Image src={require('../images/nft_1.jpg')} 
                 class="img2 img-fluid img-thumbnail mx-auto rounded" 
                 width={100} 
                 height={100} 
@@ -91,7 +91,7 @@ export default function Explore() {
                 height={500}
                 class="card-img-top"
               />
-              <Image src={require('../images/sport.jpeg')} 
+              <Image src={require('../images/nft_1.jpg')} 
                 class="img2 img-fluid img-thumbnail mx-auto rounded" 
                 width={100} 
                 height={100} 
@@ -114,7 +114,7 @@ export default function Explore() {
                 height={500}
                 class="card-img-top"
               />
-              <Image src={require('../images/photography.jpeg')} 
+              <Image src={require('../images/nft_1.jpg')} 
                 class="img2 img-fluid img-thumbnail mx-auto rounded" 
                 width={100} 
                 height={100} 
@@ -137,7 +137,7 @@ export default function Explore() {
                 height={500}
                 class="card-img-top"
               />
-              <Image src={require('../images/collectibles.jpeg')} 
+              <Image src={require('../images/nft_1.jpg')} 
                 class="img2 img-fluid img-thumbnail mx-auto rounded" 
                 width={100} 
                 height={100} 
@@ -161,7 +161,7 @@ export default function Explore() {
               class="card-img-top"
             />
             <Image 
-              src={require('../images/collectibles.jpeg')} 
+              src={require('../images/nft_1.jpg')} 
               class="img2 img-fluid img-thumbnail mx-auto rounded" 
               width={100} 
               height={100} 
