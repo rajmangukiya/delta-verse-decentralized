@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Web3Modal from "web3modal"
 import "bootstrap/dist/css/bootstrap.min.css";
-import l from "../images/l.png";
+// import l from "../images/l.png";
 import Image from 'next/image'
 import Link from "next/link";
 
