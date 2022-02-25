@@ -13,9 +13,8 @@ import Creation from './Creation';
 export default function nftinfo () {
   return (
     <div class="bg-dark">
-      <Navbar />
         <div class="container align-items-center bg-dark">
-            <div class="row my-5">
+            {/* <div class="row">
                 <div class="col-6 d-flex justify-content-center"> 
                     <Link href="/collect">
                         <a type="button" class="btn btn-outline-primary btn-lg m-3 px-4">
@@ -30,9 +29,9 @@ export default function nftinfo () {
                         </a>
                     </Link>
                 </div>
-            </div>
+            </div> */}
         </div>
-        <div class="col my-3">
+        <div class="col">
             <div class="card bg-dark border-primary">
                 <Image
                     src = {require('../images/allmonkey.jpg')}
@@ -49,9 +48,9 @@ export default function nftinfo () {
                     alt="..." 
                 />      
                 <div class="card-body">
-                    <h5 class="card-title text-center text-light">Colection 1</h5>
+                    <h5 class="card-title text-center text-light">HAPE Prime</h5>
                     <br />
-                    <p class="text-muted text-center">By Jack Aranda</p>
+                    <p class="text-muted text-center">By HAPEBEAST</p>
                 </div>
             </div>
         </div>

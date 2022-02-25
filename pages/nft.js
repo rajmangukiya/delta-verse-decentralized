@@ -11,7 +11,6 @@ import Link from "next/link";
 export default function nft() {
   return (
     <div>
-        <Navbar />
         <div class="container bg-dark text-light w-50">
             <h1 class="text-center py-3">Create new NFT</h1>
             <br />  

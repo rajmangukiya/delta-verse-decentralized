@@ -16,7 +16,6 @@ import Footer from './Footer';
 export default () => {
   return (
     <div class="bg-dark">
-      <Navbar />
 
 {/* ------------------------------------------------- */}
       <div class="container w-75">
@@ -174,7 +173,6 @@ export default () => {
 
 {/* --------------------------------------------------- */}
 
-<Footer />
 </div>
   )
 }

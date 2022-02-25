@@ -7,11 +7,11 @@ import Navbar from './Navbar';
 import l from '../images/l.png';
 import Link from "next/link";
 import Image from 'next/image'
+import Footer from './Footer';
 
 export default function Create() {
     return (
         <div class="bg-dark">
-            <Navbar />
             <div class="container w-50">
                 <div class="row">
                     <div class="col pt-5">
