@@ -13,23 +13,20 @@ import Image from 'next/image'
 export default function Explore() {
   return (
     <div class="bg-dark">
-      <div class="">
-        <Navbar />    
-      </div>
       <h1 class="text-center text-light pt-2 pb-5">Explore Collections</h1>
       <div class="container my-5 mx-auto d-flex justify-content-around ">
         <Link href="#">
-          <a class="btn btn-primary btn-lg text-dark" href="#" role="button">Photography</a>
+          <a class="btn btn-dark btn-lg border border-white text-white" href="#" role="button">Photography</a>
         </Link>
         <Link href="#">
-          <a class="btn btn-primary btn-lg text-dark" href="#" role="button">Music</a>
+          <a class="btn btn-dark border border-white btn-lg text-white" href="#" role="button">Music</a>
         </Link>
-          <a class="btn btn-primary btn-lg text-dark" href="#" role="button">Art</a>
+          <a class="btn btn-primary btn-lg text-white" href="#" role="button">Art</a>
         <Link href="#">
-          <a class="btn btn-primary btn-lg text-dark" href="#" role="button">Sports</a>
+          <a class="btn btn-dark border border-white btn-lg text-white" href="#" role="button">Sports</a>
         </Link>
         <Link href="#">
-          <a class="btn btn-primary btn-lg text-dark" href="#" role="button">Collectibles</a>
+          <a class="btn btn-dark border border-white btn-lg text-white" href="#" role="button">Collectibles</a>
         </Link>
       </div>
 {/* ---------------------------------------------- */}
@@ -38,7 +35,7 @@ export default function Explore() {
           <div class="col">
             <div class="card bg-dark border-primary">
               <Image
-                src = {require('../images/art.jpg')}
+                src = {require('../images/nft_1.jpg')}
                 alt="Picture of the author"
                 width={500}
                 height={500}
@@ -62,7 +59,7 @@ export default function Explore() {
           <div class="col">
             <div class="card bg-dark border-primary">
               <Image
-                src = {require('../images/art.jpg')}
+                src = {require('../images/nft_2.jpg')}
                 alt="Picture of the author"
                 width={500}
                 height={500}
@@ -85,7 +82,7 @@ export default function Explore() {
           <div class="col">
             <div class="card bg-dark border-primary">
               <Image
-                src = {require('../images/art.jpg')}
+                src = {require('../images/nft_3.jpg')}
                 alt="Picture of the author"
                 width={500}
                 height={500}
@@ -108,7 +105,7 @@ export default function Explore() {
           <div class="col my-3">
             <div class="card bg-dark border-primary">
               <Image
-                src = {require('../images/art.jpg')}
+                src = {require('../images/nft_4.jpg')}
                 alt="Picture of the author"
                 width={500}
                 height={500}
@@ -131,7 +128,7 @@ export default function Explore() {
           <div class="col my-3">
             <div class="card bg-dark border-primary">
               <Image
-                src = {require('../images/art.jpg')}
+                src = {require('../images/nft_5.jpg')}
                 alt="Picture of the author"
                 width={500}
                 height={500}
@@ -154,7 +151,7 @@ export default function Explore() {
           <div class="col my-3">
             <div class="card bg-dark border-primary">
             <Image
-              src = {require('../images/art.jpg')}
+              src = {require('../images/nft_6.jpg')}
               alt="Picture of the author"
               width={500}
               height={500}
@@ -177,7 +174,6 @@ export default function Explore() {
         </div>
       </div>
     </div>
-    <Footer />        
   </div>
   );
 }

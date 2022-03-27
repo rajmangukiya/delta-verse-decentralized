@@ -10,7 +10,7 @@ import Link from "next/link";
 // $enable-negative-margins : true
 export default function Footer(){
     return (
-      <div class="bg-dark text-white pb-4">
+      <div className="bg-dark text-white pb-4">
         <hr class="bg-light border-3 border-top border-light"></hr>
         <div class="container text-center text-md-left">
             <div class="row text-center text-md-left">
@@ -115,16 +115,15 @@ export default function Footer(){
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                     <h5 class="text-uppercase mb-4 font-weight-bold fs-4">feedback</h5>
                     <div class="mb-3">
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="email" />
-</div>
-<div class="mb-3">
-  <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="content" rows="2"></textarea>
-</div>
-<div class="col-12">
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </div>
-                </div>
-                
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="email" />
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="content" rows="2"></textarea>
+                    </div>
+                    <div class="col-12">
+                            <button type="submit" class="btn btn-primary px-4">Submit</button>
+                    </div>
+                </div>  
             </div>
         </div>
       </div>

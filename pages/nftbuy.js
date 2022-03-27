@@ -6,6 +6,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import l from "../images/l.png";
 import Image from 'next/image'
 import Link from "next/link";
+import Collection from './Collection';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import Creation from './Creation';
 
 export default function nftinfo () {
   return (
@@ -24,20 +28,15 @@ export default function nftinfo () {
                 </div>
                 <div class="col-6">
                     <h6 class="text-muted">
-                        Collection 1
+                        HAPE Prime
                     </h6>
                     <h2 class="text-white">
-                        NFT #3
+                        HAPE #108
                     </h2>
                     <h6 class="text-muted">
                         owned by 864652
                     </h6>
-                    <form>
-                        <div class="mb-3">
-                            <input type="text" placeholder='Enter price' class="form-control" id="price"/>
-                        </div>
-                    </form>
-                    {/* <div class="bg-dark text-white w-75 p-3 my-5 border border-light rounded">
+                    <div class="bg-dark text-white w-75 p-3 my-5 border border-light rounded">
                         <h6 class="text-muted">Current price</h6>
                         <div class="row">
                             <div class="col-6">
@@ -47,12 +46,12 @@ export default function nftinfo () {
                                 <h3 class="text-white">$241,395.00</h3>
                             </div>
                         </div>
-                    </div> */}
+                    </div>
                     <div class="row justify-content-start d-flex">
                         <div class="col">
                             <Link href="/create-nft">
                                 <a type="button" class="btn btn-outline-primary btn-lg">
-                                    Sell now
+                                    Buy now
                                 </a>
                             </Link>
                         </div>
@@ -76,6 +75,59 @@ export default function nftinfo () {
                     </div>
                 </div>
             </div> 
+        </div>
+        <div class="container w-75 my-5">
+            <div class="table-responsive">
+                <h4 class="d-flex justify-content-center py-2 text-white">Activity</h4>
+                <table class="table border border-white caption-top">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Event</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">From</th>
+                            <th scope="col">To</th>
+                            <th scope="col">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-dark text-muted">
+                        <tr>
+                            <th scope="row">Sale</th>
+                            <td>80.00 @</td>
+                            <td>0x1234567891234567890</td>
+                            <td>0x1234567891234567890</td>
+                            <td>20/02/2022</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Sale</th>
+                            <td>80.00 @</td>
+                            <td>0x1234567891234567890</td>
+                            <td>0x1234567891234567890</td>
+                            <td>20/02/2022</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Sale</th>
+                            <td>80.00 @</td>
+                            <td>0x1234567891234567890</td>
+                            <td>0x1234567891234567890</td>
+                            <td>20/02/2022</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Sale</th>
+                            <td>80.00 @</td>
+                            <td>0x1234567891234567890</td>
+                            <td>0x1234567891234567890</td>
+                            <td>20/02/2022</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Sale</th>
+                            <td>80.00 @</td>
+                            <td>0x1234567891234567890</td>
+                            <td>0x1234567891234567890</td>
+                            <td>20/02/2022</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="justify-content-center d-flex">
             <Link href="/create-nft">

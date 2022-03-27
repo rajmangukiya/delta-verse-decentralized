@@ -68,8 +68,8 @@ export default function Navbar(){
               >
                 <img
                   src="https://www.leisureopportunities.co.uk/images/995586_746594.jpg"
-                  class="rounded-circle"
-                  height="65"
+                  class="rounded-circle mt-2"
+                  height="55"
                   alt="Black and White Portrait of a Man"
                   loading="lazy"
                 />
@@ -94,7 +94,8 @@ export default function Navbar(){
             </div>
           </div>  
       </nav>
-      <hr class="bg-light border-3 border-top border-light"></hr>
+      {/* <div class="bg-light w-25"> </div> */}
+      {/* <hr class="bg-light border-1 border-top border-light"></hr> */}
         {/* -------------------- */}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script

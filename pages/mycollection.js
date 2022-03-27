@@ -9,11 +9,11 @@ import Link from "next/link";
 import Collection from './Collection';
 import Navbar from './Navbar';
 import Creation from './Creation';
+import Footer from './Footer';
 
 export default function mycollection () {
   return (
     <div class="bg-dark">
-      <Navbar />
       <div class="card my-5 py-5">
         <Image
           src = {require('../images/wallpaper.jpg')}

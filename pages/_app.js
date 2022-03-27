@@ -1,8 +1,13 @@
 import Link from 'next/link'
-
+import Footer from './Footer'
+import Navbar from './Navbar'
 function Marketplace({ Component, pageProps }) {
   return (
-    <Component {...pageProps} />
+    <>
+      <Navbar />
+      <Component {...pageProps} />
+      <Footer />
+    </>
   )
 }
 
