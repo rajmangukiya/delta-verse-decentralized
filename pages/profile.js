@@ -13,7 +13,7 @@ import Footer from './Footer';
 
 export default function profile () {
   return (
-    <div class="bg-dark">
+    <div class="index">
       <div class="card my-5 py-5">
         <Image
           src = {require('../images/wallpaper.jpg')}
@@ -29,7 +29,7 @@ export default function profile () {
               alt="..." 
             />     */}
             {/* {/* <Image src={require('../images/l.png')} width={120} height={80} alt="Image Component" /> */}
-        <img src={require('../images/music.jpg').default}  class="img2 img-fluid img-thumbnail mx-auto rounded mt-n1" width={100} height={100} alt="" /> 
+        <img src={require('../images/music.jpg').default}  class="img2 img-fluid img-thumbnail mx-auto rounded mt-n1" width={100} height={100} alt="ds" /> 
       
         <div class="card-body bg-dark">
           <h5 class="card-title text-center text-light">Jack Aranda</h5>
@@ -40,14 +40,14 @@ export default function profile () {
         <div class="row my-5">
           <div class="col-6 d-flex justify-content-center"> 
             <Link href="/collect">
-              <a type="button" class="btn btn-outline-primary btn-lg m-3 px-4">
+              <a type="button" class="btn-primary btn-outline-info btn-lg m-3 px-4 text-dark" style={{textDecoration : "none"}}>
                 Collected
               </a>
             </Link>
           </div>
           <div class="col-6 d-flex justify-content-center">
             <Link href="/create-nft">
-              <a type="button" class="btn btn-outline-primary btn-lg m-3 px-4">
+              <a type="button" class="btn-primary btn-outline-info btn-lg m-3 px-4 text-dark" style={{textDecoration : "none"}}>
                 Created
               </a>
             </Link>

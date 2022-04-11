@@ -6,7 +6,7 @@ import Web3Modal from "web3modal"
 export default () => {
 
   return (
-    <div className="d-flex justify-content-center">
+    <div class="d-flex justify-content-center index">
       <h1>Wallet page</h1>
     </div>
   )

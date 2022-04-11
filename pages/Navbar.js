@@ -4,14 +4,15 @@ import axios from 'axios'
 import Web3Modal from "web3modal"
 import "bootstrap/dist/css/bootstrap.min.css";
 import l from "../images/index_1.png";
+import s from "../images/search.png";
 import Image from 'next/image'
 import Link from "next/link";
 // $enable-negative-margins : true
 export default function Navbar(){
     return (
-      <div class="bg-dark">
+      <div class="nav-bar">
         <nav class="navbar navbar-expand-lg navbar-light text-light">
-          <div class="container-fluid mx-5 my-n5">
+          <div class="container-fluid mx-5">
             <Link href="/">
               <a class="navbar-brand text-light px-3 mx-2 fs-2">
                 <Image
@@ -28,30 +29,36 @@ export default function Navbar(){
             </button>          
             <div class="collapse navbar-collapse mx-5" id="navbarTogglerDemo02">
               <form class="flex-fill input-group">
-                <span class="input-group-text" id="basic-addon1">@</span>
+                {/* <span class="input-group-text" id="basic-addon1">@</span> */}
+                <Image
+                  src = {s}
+                  alt="Picture of the author"
+                  width={45}
+                  height={40}
+                />
                 <input type="search" class="form-control me-2" placeholder="search" aria-label="search"/>
               </form>
-              <ul class="navbar-nav bg-dark mb-lg-0 mx-5 px-4">
+              <ul class="navbar-nav mb-lg-0 mx-5 px-4">
                 <li class="nav-item m-2 pr-3">
                   <Link href="/explore">
-                    <a class="nav-link text-light fs-5" aria-current="page">Explore</a>
+                    <a class="nav-link text-muted fw-bold fs-5" aria-current="page">Explore</a>
                   </Link>
                 </li>
                 <li class="nav-item m-2 px-3">
                   <Link href="#">
-                    <a class="nav-link text-light fs-5">State</a>
+                    <a class="nav-link text-muted fw-bold fs-5">State</a>
                   </Link>
                 </li>
                 <li class="nav-item m-2 pl-3">
                     <Link href="create-nft">
-                    <a class="nav-link text-light fs-5">Create</a>
+                    <a class="nav-link text-muted fw-bold fs-5">Create</a>
                   </Link>
                 </li>
               </ul>
               
             </div>
             <Link href="/create-nft">
-                <svg xmlns="http://www.w3.org/2000/svg" class="nav-item" width="48" height="36" fill="currentColor" class="bi bi-wallet-fill" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" class="nav-item bi bi-wallet-fill svg" width="48" height="36" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542.637 0 .987-.254 1.194-.542.226-.314.306-.705.306-.958a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2h-13z"/>
                   <path d="M16 6.5h-5.551a2.678 2.678 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5c-.963 0-1.613-.412-2.006-.958A2.679 2.679 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-6z"/>
                 </svg>
@@ -79,7 +86,7 @@ export default function Navbar(){
                 aria-labelledby="navbarDropdownMenuAvatar"
               >
                 <li>
-                  <a class="dropdown-item text-center bg-dark text-white fs-5" href="/profile">Profile</a>
+                  <a class="dropdown-item text-center text-white fs-5" href="/profile">Profile</a>
                 </li>
                 <li>
                   <a class="dropdown-item text-center py-2 border border-primary bg-dark text-white fs-5" href="/mycollection">My collections</a>

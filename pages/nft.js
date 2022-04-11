@@ -10,8 +10,7 @@ import Link from "next/link";
 
 export default function nft() {
   return (
-    <div>
-        <div class="container bg-dark text-light w-50">
+        <div class="container index text-light w-50">
             <h1 class="text-center py-3">Create new NFT</h1>
             <br />  
             <form>
@@ -76,13 +75,12 @@ export default function nft() {
                         </select>
                     </div>
                 </div>
-                <div class="d-grid col-2 mx-auto">
+                <div class="d-grid col-2 mx-auto py-3">
                     <Link href="/">
-                        <a type="submit" class="btn btn-primary" type="button" href='/'>Create</a>
-                    </Link>
+                        <a type="submit" class="btn-primary py-1 px-3 m-auto" style={{textDecoration : "none"}}>Create</a>
+                    </Link>                    
                 </div>
             </form> 
         </div>
-    </div>
     )
 }

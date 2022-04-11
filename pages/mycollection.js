@@ -13,7 +13,7 @@ import Footer from './Footer';
 
 export default function mycollection () {
   return (
-    <div class="bg-dark">
+    <div class="index">
       <div class="card my-5 py-5">
         <Image
           src = {require('../images/wallpaper.jpg')}

@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Collection() {
   return (
-    <div className="d-flex justify-content-center">
+    <div class="d-flex justify-content-center index">
       <div class="mx-3">
         <div class="row row-cols-1 row-cols-md-3 g-4">
           <div class="col">

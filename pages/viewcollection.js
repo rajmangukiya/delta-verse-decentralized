@@ -12,7 +12,7 @@ import Creation from './Creation';
 
 export default function viewcollection () {
   return (
-    <div class="bg-dark">
+    <div class="index">
         <div class="col my-3">
             <div class="card bg-dark border-primary">
                 <Image

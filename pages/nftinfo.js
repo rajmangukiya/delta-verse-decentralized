@@ -12,7 +12,7 @@ import Creation from './Creation';
 
 export default function nftinfo () {
   return (
-    <div class="bg-dark">
+    <div class="index">
         <div class="container align-items-center bg-dark">
             {/* <div class="row">
                 <div class="col-6 d-flex justify-content-center"> 

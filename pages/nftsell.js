@@ -9,7 +9,7 @@ import Link from "next/link";
 
 export default function nftinfo () {
   return (
-    <div class="bg-dark">
+    <div class="index">
         <div class="container w-75">
             <div class="row py-5">
                 <div class="col-6 p-auto m-auto d-flex justify-content-start ">
@@ -51,7 +51,7 @@ export default function nftinfo () {
                     <div class="row justify-content-start d-flex">
                         <div class="col">
                             <Link href="/create-nft">
-                                <a type="button" class="btn btn-outline-primary btn-lg">
+                                <a type="button" class="btn-primary btn-outline-primary btn-lg text-dark" style={{ textDecoration : "none"}}>
                                     Sell now
                                 </a>
                             </Link>
@@ -77,9 +77,9 @@ export default function nftinfo () {
                 </div>
             </div> 
         </div>
-        <div class="justify-content-center d-flex">
+        <div class="justify-content-center d-flex pb-3">
             <Link href="/create-nft">
-                <a type="button" class="btn btn-outline-primary btn-lg">
+                <a type="button" class="btn-primary btn-outline-primary btn-lg text-dark" style={{ textDecoration : "none"}}>
                     view collection
                 </a>
             </Link>
