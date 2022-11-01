@@ -1,15 +1,6 @@
 import { ethers } from 'ethers'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
-import Web3Modal from "web3modal"
 import Select from 'react-select'
-import "bootstrap/dist/css/bootstrap.min.css";
-import logo from "../images/logo.png";
-import Navbar from './Navbar';
-import Image from 'next/image'
-import Link from "next/link"
-import image from '../images/allmonkey.jpg'
-import ipfs from '../helpers/ipfs.js'
 import { nftmarketaddress, nftaddress, collectionAddress } from '../config.js'
 
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
@@ -105,51 +96,52 @@ export default function nft() {
     }, [])
 
     return (
-        <div class="bg-dark p-5">
-            <div class="container bg-dark text-light w-50 my-5">
-                <h1 class="text-center py-3">Create new NFT</h1>
+        <div className="bg-dark p-5">
+            <div className="container bg-dark text-light w-50 my-5">
+                <h1 className="text-center py-3">Create new NFT</h1>
                 <br />
                 <form>
-                    <div class="row mb-5">
-                        <label for="name" class="col-sm-2 col-form-label">Name</label>
-                        <div class="col-sm-10">
-                            <input type="text" onChange={(e) => { setNftData({ ...nftData, name: e.target.value }) }} class="form-control" id="name" />
+                    <div className="row mb-5">
+                        <label for="name" className="col-sm-2 col-form-label">Name</label>
+                        <div className="col-sm-10">
+                            <input type="text" onChange={(e) => { setNftData({ ...nftData, name: e.target.value }) }} className="form-control" id="name" />
                         </div>
                     </div>
-                    <div class="row mb-5">
-                        <label for="image" class="col-sm-2 col-form-label">Image</label>
-                        <div class="col-sm-10">
-                            <label role="button" tabindex="0" for="image" class="col-sm-2 col-form-label">
+                    <div className="row mb-5">
+                        <label for="image" className="col-sm-2 col-form-label">Image</label>
+                        <div className="col-sm-10">
+                            <label role="button" tabindex="0" for="image" className="col-sm-2 col-form-label">
                                 <img
                                     src={imgUrl != '' ? imgUrl : nftData.image}
                                     alt="Picture of the author"
-                                    width={100}
-                                    height={100}
-                                    class="d-inline-block align-text-top"
+                                    width={'300px'}
+                                    height={'200px'}
+                                    className="d-inline-block align-text-top 
+                                    rounded"
                                 />
                             </label>
                             <input
                                 type="file"
                                 onChange={(e) => { handleSubmit(e) }}
-                                class="form-control d-none"
+                                className="form-control d-none"
                                 id="image" />
                         </div>
                     </div>
-                    <div class="row mb-5">
-                        <label for="description" class="col-sm-2 col-form-label">Description</label>
-                        <div class="col-sm-10">
-                            <textarea onChange={(e) => { setNftData({ ...nftData, description: e.target.value }) }} class="form-control" rows="3" id="description" />
+                    <div className="row mb-5">
+                        <label for="description" className="col-sm-2 col-form-label">Description</label>
+                        <div className="col-sm-10">
+                            <textarea onChange={(e) => { setNftData({ ...nftData, description: e.target.value }) }} className="form-control" rows="3" id="description" />
                         </div>
                     </div>
-                    <div class="row mb-5">
-                        <label for="link" class="col-sm-2 col-form-label">External Link</label>
-                        <div class="col-sm-10">
-                            <input onChange={(e) => { setNftData({ ...nftData, link: e.target.value }) }} type="text" class="form-control" id="link" />
+                    <div className="row mb-5">
+                        <label for="link" className="col-sm-2 col-form-label">External Link</label>
+                        <div className="col-sm-10">
+                            <input onChange={(e) => { setNftData({ ...nftData, link: e.target.value }) }} type="text" className="form-control" id="link" />
                         </div>
                     </div>
-                    <div class="row mb-5">
-                        <label for="collection" class="col-sm-2 col-form-label">Collection</label>
-                        <div class="col-sm-10">
+                    <div className="row mb-5">
+                        <label for="collection" className="col-sm-2 col-form-label">Collection</label>
+                        <div className="col-sm-10">
                             <Select
                                 className='text-dark'
                                 options={collections}
@@ -161,20 +153,20 @@ export default function nft() {
                             />
                         </div>
                     </div>
-                    <div class="row mb-5">
-                        <label for="rarity" class="col-sm-2 col-form-label">Rarity</label>
-                        <div class="col-sm-10">
+                    <div className="row mb-5">
+                        <label for="rarity" className="col-sm-2 col-form-label">Rarity</label>
+                        <div className="col-sm-10">
                             <input
                                 type="range"
                                 onChange={(e) => {
                                     setNftData({ ...nftData, rarity: e.target.value })
-                                }} class="form-range"
+                                }} className="form-range"
                                 id="customRange1" />
                         </div>
                     </div>
-                    {/* <div class="row mb-3">
-                        <label for="collection" class="col-sm-2 col-form-label">Blockchain</label>
-                        <div class="col-sm-10">
+                    {/* <div className="row mb-3">
+                        <label for="collection" className="col-sm-2 col-form-label">Blockchain</label>
+                        <div className="col-sm-10">
                             <Select
                                 options={blockChains}
                                 name="blockChains"
@@ -183,8 +175,8 @@ export default function nft() {
                         </div>
                     </div> */}
                     <div className='w-100 d-flex justify-content-center'>
-                        <btn onClick={createNft} class="bg-primary px-4 py-2" style={{ cursor: 'pointer' }}>
-                            create
+                        <btn onClick={createNft} className="btn btn-primary px-4" style={{ cursor: 'pointer' }}>
+                            Create
                         </btn>
                     </div>
                 </form>

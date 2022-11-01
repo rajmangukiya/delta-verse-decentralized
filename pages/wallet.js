@@ -1,14 +1,7 @@
 import { ethers } from 'ethers'
-import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import axios from 'axios'
-import Web3Modal from "web3modal"
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from './Navbar';
-import l from '../images/l.png';
-import Link from "next/link";
-import Image from 'next/image'
-import Footer from './Footer';
+import Image from 'next/image' 
 
 export default function Create() {
 
@@ -21,22 +14,22 @@ export default function Create() {
     }
 
     return (
-        <div class="bg-dark">
-            <div class="container w-50">
-                <div class="row">
-                    <div class="col pt-5">
-                        <h1 class="primary text-primary pb-5">
+        <div className="bg-dark h-100 d-flex justify-content-center align-items-center">
+            <div className="container w-50">
+                <div className="row">
+                    <div className="col pt-5 d-flex flex-column align-items-center">
+                        <h1 className="primary text-primary pb-5">
                             Connect your wallet <br />
-                            <small class="text-muted ">to use this functionality <br />no account? create new one</small>
+                            <small className="text-muted">to use this functionality <br />no account? create new one</small>
                         </h1>
                         <div onClick={connectWallet}>
-                            <a class="btn btn-primary border-primary px-4" type="button">
+                            <a className="btn btn-primary border-primary px-4 d-flex justify-content-evenly align-items-center" type="button">
                                 <Image
                                     src={require('../images/MetaMask_Fox.png')}
                                     alt="Picture of the author"
                                     width={50}
                                     height={50}
-                                    class="d-inline-block align-text-top"
+                                    className="d-inline-block align-text-top"
                                 />
                                 MetaMask
                             </a>

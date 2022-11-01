@@ -1,7 +1,3 @@
-import { ethers } from 'ethers'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-import Web3Modal from "web3modal"
 import "bootstrap/dist/css/bootstrap.min.css";
 import l from "../images/index_1.png";
 import Image from 'next/image'
@@ -16,12 +12,12 @@ export default function Navbar() {
       <nav class="navbar navbar-expand-lg navbar-light text-light">
         <div class="container-fluid mx-5 my-n5">
           <Link href="/">
-            <a class="navbar-brand text-light px-3 mx-2 fs-2">
+            <a class="navbar-brand text-light px-3 mx-2 fs-2 d-flex justify-content-center align-items-center">
               <Image
                 src={l}
                 alt="Picture of the author"
-                width={30}
-                height={30}
+                width={70}
+                height={70}
               />
               Delta Verse
             </a>

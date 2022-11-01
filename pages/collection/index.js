@@ -10,7 +10,7 @@ import Link from "next/link";
 import Footer from '../Footer';
 import Image from 'next/image'
 import { withRouter } from 'next/router'
-import { collectionAddress } from '../../config.js'
+import { collectionAddress } from './'
 
 import Collection from '../../artifacts/contracts/Collection.sol/Collection.json'
 import { useRouter } from 'next/router';
