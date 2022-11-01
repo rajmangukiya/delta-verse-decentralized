@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import l from "../images/l.png";
 import Image from 'next/image'
 import Link from "next/link";
-import Collection from './Collection';
+// import Collection from '../Collection';
 import Navbar from './Navbar';
 import Creation from './Creation';
 
@@ -97,7 +97,7 @@ export default function viewcollection () {
                 </form>
             </div>
             <div class="col-9 border border-white p-4">
-                <Collection />
+                {/* <Collection /> */}
             </div>
         </div>
     </div> 

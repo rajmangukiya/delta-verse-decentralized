@@ -6,12 +6,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import l from "../images/l.png";
 import Image from 'next/image'
 import Link from "next/link";
-import Collection from './Collection';
+// import Collection from './Collection';
 import Navbar from './Navbar';
 import Creation from './Creation';
 import Footer from './Footer';
 
-export default function mycollection () {
+export default function profile () {
   return (
     <div class="bg-dark">
       <div class="card my-5 py-5">
@@ -55,7 +55,8 @@ export default function mycollection () {
         </div>
       </div>
       
-      <Collection />
+      <Creation />
+
     </div> 
   )
 }

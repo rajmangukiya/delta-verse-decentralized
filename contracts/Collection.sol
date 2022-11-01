@@ -15,12 +15,14 @@ contract Collection is ERC721URIStorage {
         address owner;
         string uri;
         uint256 categoryId;
+        string name;
+        string description;
     }
     mapping(uint256 => CollectionStruct) private collections;
 
     constructor() ERC721("Metaverse", "METT") {}
 
-    function createCollection(string memory collectionURI, uint256 categoryId)
+    function createCollection(string memory collectionURI, uint256 categoryId, string memory name, string memory description)
         public
     {
         collectionId.increment();
@@ -29,7 +31,9 @@ contract Collection is ERC721URIStorage {
             newCollectionId,
             msg.sender,
             collectionURI,
-            categoryId
+            categoryId,
+            name,
+            description
         );
     }
 

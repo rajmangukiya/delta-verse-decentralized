@@ -3,34 +3,30 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Web3Modal from "web3modal"
 import React from 'react';
-import Navbar from './Navbar';
-import logo from '../images/logo.png';
+import Navbar from '../Navbar';
+import logo from '../../images/logo.png';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
-import Footer from './Footer';
+import Footer from '../Footer';
 import Image from 'next/image'
-import { collectionAddress } from '../config.js'
+import { withRouter } from 'next/router'
+import { collectionAddress } from '../../config.js'
 
-import Collection from '../artifacts/contracts/Collection.sol/Collection.json'
+import Collection from '../../artifacts/contracts/Collection.sol/Collection.json'
 import { useRouter } from 'next/router';
+import { categories } from '../../helpers';
 
 
 let provider, signer, collectionContract;
 
-export default function Explore() {
+const CollectionIndex = (req) => {
 
   // const [categories, setCategories] = useState([])
   const [categoryId, setCategoryId] = useState(1)
-  const categories = [
-    { name: 'photography', categoryId: 1 },
-    { name: 'Music', categoryId: 2 },
-    { name: 'Arts', categoryId: 3 },
-    { name: 'Sports', categoryId: 4 },
-    { name: 'Collectibles', categoryId: 5 },
-  ]
   const [collections, setCollections] = useState([])
 
   const router = useRouter()
+  const state = router.state
 
   const handleCategory = (_categoryId) => {
     setCategoryId(_categoryId)
@@ -59,6 +55,10 @@ export default function Explore() {
   }
 
   useEffect(() => {
+    req.router.query.category && setCategoryId(parseInt(req.router.query.category))
+  }, [])
+
+  useEffect(() => {
     loadContracts()
     getCollection(1)
   }, [])
@@ -66,44 +66,39 @@ export default function Explore() {
   return (
     <div class="bg-dark">
       <h1 class="text-center text-light pt-2 pb-5">Explore Collections</h1>
-      <div class="container my-5 mx-auto d-flex justify-content-around ">
+      <div class="container my-5 mx-auto d-flex justify-content-around">
         {
           categories.map(category => {
             return (
-              <div className={`btn ${category.categoryId == categoryId ? 'btn-light text-dark' : 'btn-dark text-light'} btn-lg border border-white`} onClick={() => handleCategory(category.categoryId)} >{category.name}</div>
+              <div className={`${category?.categoryId == categoryId ? 'bg-light text-dark' : 'bg-dark text-light'} px-4 py-2 shadow-lg rounded-3`} style={{ cursor: "pointer" }} onClick={() => handleCategory(category.categoryId)} >{category.name}</div>
             )
           })
         }
       </div>
       {/* ---------------------------------------------- */}
-      <div class="container">
-        <div class="row row-cols-1 row-cols-md-3 pt-5">
+      <div class="p-5">
+        <div class="d-flex flex-nowrap justify-content-around">
           {
             collections.map(collection => {
               return (
-                <div class="btn col" onClick={() => router.push(`/collection/${collection.collectionId}`)}>
-                  <div class="card bg-dark border-primary">
+                <div class="bg-dark shadow-lg m-2 d-flex flex-column align-items-center" style={{ width: '400px', borderRadius: '10px', cursor: 'pointer'}} onClick={() => router.push(`collection/${collection.collectionId}`)}>
+                  <div className='w-100' style={{height: '300px'}}>
                     <img
                       src={collection.url}
                       alt="Picture of the author"
-                      width={500}
-                      height={500}
-                      class="card-img-top"
+                      style={{ width: '100%', height: '100%', borderRadius: '10px 10px 0px 0px'}}
                     />
-                    <Image
-                      src={require('../images/nft_1.jpg')}
-                      alt="Picture of the author"
-                      width={100}
-                      height={100}
-                      class="img2 img-fluid img-thumbnail rounded"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title text-center text-light">{collection.name}</h5>
-                      <br />
-                      <p class="text-center text-primary">By HAPEBEAST</p>
-                      <p class="text-muted d-flex flex-start">{collection.description}</p>
-                    </div>
                   </div>
+                  <img
+                    src={collection.url}
+                    alt="Picture of the author"
+                    style={{borderRadius: '20px',transform: 'translateY(-50px)'}}
+                    width={100}
+                    height={100}
+                  />
+                    <h5 class="text-center text-light">{collection.name}</h5>
+                    <p class="text-center text-primary">By HAPEBEAST</p>
+                    <p class="text-muted d-flex flex-start">{collection.description}</p>
                 </div>
               )
             })
@@ -114,3 +109,4 @@ export default function Explore() {
   );
 }
 
+export default withRouter(CollectionIndex)

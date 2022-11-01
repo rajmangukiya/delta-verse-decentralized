@@ -3,6 +3,7 @@ $normal-text: 20px;
 $btn-hover: rgb(141, 221, 255);
 $primary: rgb(0, 179, 255);
 $enable-negative-margins: true;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,6 +11,70 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.link {
+  text-decoration: none;
+}
+
+// .connect {
+//   // margin-left: 100px;
+//   // padding-left: 50px;
+// }
+.create-btn {
+  background-color: #FFFFFF;
+  color: aqua;
+}
+
+.svg {
+  fill: #FFFFFF;
+}
+
+.drop {
+  background-color: aqua;
+  color:aqua ;
+}
+
+.nav-bar {
+  background-color: #121212;
+}
+
+.index {
+  background-color: #121212;
+}
+
+.foot {
+  position: relative;
+  bottom: 0;
+  background-color: #000000;
+}
+.bck {
+  background-color: gray;
+}
+
+.img1 {  
+  overflow: hidden;
+}
+
+.thumb-image {
+  vertical-align: middle;
+  position: absolute;
+  overflow:hidden;
+  // margin-top: -500px;
+  // width: 50px;
+  // height: 50px;
+  border-radius: 100%;
+}
+
+.shadow-light-lg {
+  -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+          box-shadow: 0 1rem 3rem rgba(255, 255, 255, 1) !important;
+}
+
+.fit-cover-image {
+  object-fit: cover !important;
+  width: 50px !important;
+  height: 100px !important;
 }
 
 code {

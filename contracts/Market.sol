@@ -33,7 +33,7 @@ contract NFTMarket is ReentrancyGuard {
         address payable owner;
         address payable rootOwner;
         uint256 price;
-        bool sold;
+        bool onSale;
     }
 
     mapping(uint256 => MarketItem) private marketItems;
@@ -45,7 +45,7 @@ contract NFTMarket is ReentrancyGuard {
         address seller,
         address owner,
         uint256 price,
-        bool sold
+        bool onSale
     );
 
     /* Returns the listing price of the contract */
@@ -66,24 +66,26 @@ contract NFTMarket is ReentrancyGuard {
         _itemId.increment();
         uint256 itemId = _itemId.current();
 
-        marketItems[itemId] = MarketItem(
+        nft.setSold(tokenId);
+
+        marketItems[tokenId] = MarketItem(
             itemId,
             tokenId,
             nft.getCollectionId(tokenId),
             payable(msg.sender),
             payable(msg.sender),
             price,
-            false
+            true
         );
 
-        itemHistory[itemId].push(
-            ItemHistory(
-                payable(address(0)),
-                payable(msg.sender),
-                price,
-                block.timestamp
-            )
-        );
+        // itemHistory[tokenId].push(
+        //     ItemHistory(
+        //         payable(address(0)),
+        //         payable(msg.sender),
+        //         price,
+        //         block.timestamp
+        //     )
+        // );
 
         emit MarketItemCreated(
             itemId,
@@ -95,27 +97,38 @@ contract NFTMarket is ReentrancyGuard {
         );
     }
 
+    /* Will return single item as per given tokenId */
+    function getMarketItem(uint256 tokenId)
+        public
+        view
+        returns (MarketItem memory)
+    {
+        return marketItems[tokenId];
+    }
+
     /* Creates the sale of a marketplace item */
     /* Transfers ownership of the item, as well as funds between parties */
-    function createMarketSale(address nftContract, uint256 itemId)
+    function createMarketSale(address nftContract, uint256 _tokenId)
         public
         payable
-        nonReentrant
     {
-        uint256 price = marketItems[itemId].price;
-        uint256 tokenId = marketItems[itemId].tokenId;
+        uint256 price = marketItems[_tokenId].price;
+        uint256 tokenId = marketItems[_tokenId].tokenId;
 
-        require(
-            msg.value == price,
-            "Please submit the asking price in order to complete the purchase"
-        );
+        marketItems[_tokenId].onSale = false;
+
+        // require(
+        //     msg.value == price,
+        //     "Please submit the asking price in order to complete the purchase"
+        // );
 
         NFT nft = NFT(nftContract);
         nft.transferOwnerFrom(msg.sender, tokenId);
+        nft.setUnSold(tokenId);
 
-        marketItems[itemId].owner.transfer(msg.value);
-        marketItems[itemId].owner = payable(msg.sender);
-        marketItems[itemId].sold = true;
+        marketItems[_tokenId].owner.transfer(msg.value);
+        marketItems[_tokenId].owner = payable(msg.sender);
+        marketItems[_tokenId].onSale = false;
     }
 
     /* Returns all unsold market items */
@@ -185,28 +198,38 @@ contract NFTMarket is ReentrancyGuard {
     }
 
     function fetchCollectionItems(
-        uint256 collectionId,
-        uint256 perPage,
-        uint256 pageNo
+        address nftContract,
+        uint256 collectionId 
+        // uint256 perPage,
+        // uint256 pageNo
     ) public view virtual returns (MarketItem[] memory) {
-        uint256 itemCount = _itemId.current();
-        MarketItem[] memory items = new MarketItem[](perPage);
-        uint256 count = 1;
+        NFT nft = NFT(nftContract);
+        uint256 itemCount = nft.getTokenCount();
+        MarketItem[] memory items = new MarketItem[](itemCount);
         uint256 itemIndex = 0;
-        for (uint256 i = 1; i <= itemCount && itemIndex < perPage; i++) {
+        for (uint256 i = 1; i <= itemCount; i++) {
             MarketItem storage item = marketItems[i];
+            // NFTStruct storage nftToken = nft.tokenIdToToken(item.tokenId);
             if (item.collectionId == collectionId) {
-                if (count > ((pageNo - 1) * perPage)) {
-                    items[itemIndex] = item;
-                    itemIndex++;
-                }
-                count++;
+                items[itemIndex] = MarketItem(
+                    item.itemId,
+                    item.tokenId,
+                    item.collectionId,
+                    item.owner,
+                    item.rootOwner,
+                    item.price,
+                    item.onSale
+                );
             }
         }
         return items;
     }
 
-    function tokenHistory(uint256 tokenId) public view returns (ItemHistory[] memory) {
-      return itemHistory[tokenId];
+    function tokenHistory(uint256 tokenId)
+        public
+        view
+        returns (ItemHistory[] memory)
+    {
+        return itemHistory[tokenId];
     }
 }

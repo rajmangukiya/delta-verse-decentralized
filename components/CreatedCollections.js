@@ -1,44 +1,22 @@
 import { ethers } from 'ethers'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
-import Web3Modal from "web3modal"
-import React from 'react';
-import Navbar from './Navbar';
-import logo from '../images/logo.png';
 import "bootstrap/dist/css/bootstrap.min.css";
-import Link from "next/link";
-import Footer from './Footer';
 import Image from 'next/image'
+import { useRouter } from 'next/router';
 import { collectionAddress } from '../config.js'
 
 import Collection from '../artifacts/contracts/Collection.sol/Collection.json'
-import { useRouter } from 'next/router';
-
 
 let provider, signer, collectionContract;
 
-export default function Explore() {
+const CreatedCollections = () => {
 
-  // const [categories, setCategories] = useState([])
-  const [categoryId, setCategoryId] = useState(1)
-  const categories = [
-    { name: 'photography', categoryId: 1 },
-    { name: 'Music', categoryId: 2 },
-    { name: 'Arts', categoryId: 3 },
-    { name: 'Sports', categoryId: 4 },
-    { name: 'Collectibles', categoryId: 5 },
-  ]
   const [collections, setCollections] = useState([])
 
   const router = useRouter()
 
-  const handleCategory = (_categoryId) => {
-    setCategoryId(_categoryId)
-    getCollection(_categoryId)
-  }
-
   const getCollection = async (_collectionId) => {
-    let data = await collectionContract.fetchCategoryCollection(_collectionId, 10, 1)
+    let data = await collectionContract.fetchMyCollection(10, 1)
     data = data
       .filter(x => x[0].toNumber())
       .map(x => {
@@ -64,18 +42,7 @@ export default function Explore() {
   }, [])
 
   return (
-    <div class="bg-dark">
-      <h1 class="text-center text-light pt-2 pb-5">Explore Collections</h1>
-      <div class="container my-5 mx-auto d-flex justify-content-around ">
-        {
-          categories.map(category => {
-            return (
-              <div className={`btn ${category.categoryId == categoryId ? 'btn-light text-dark' : 'btn-dark text-light'} btn-lg border border-white`} onClick={() => handleCategory(category.categoryId)} >{category.name}</div>
-            )
-          })
-        }
-      </div>
-      {/* ---------------------------------------------- */}
+    <div className='bg-dark'>
       <div class="container">
         <div class="row row-cols-1 row-cols-md-3 pt-5">
           {
@@ -111,6 +78,7 @@ export default function Explore() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
+export default CreatedCollections
