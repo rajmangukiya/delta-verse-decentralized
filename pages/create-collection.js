@@ -13,7 +13,8 @@ import ipfs from '../helpers/ipfs.js'
 import { nftmarketaddress, nftaddress, collectionAddress } from '../config.js'
 import Collection from '../artifacts/contracts/Collection.sol/Collection.json'
 import { categories } from '../helpers'
-import { uploadFile } from '../helpers/uploadFile'
+import { storage } from '../firebase';
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 
 export default function nft() {
     const [collectionData, setCollectionData] = useState({
@@ -22,36 +23,59 @@ export default function nft() {
         description: '',
         category: null
     })
-    const [file, setFile] = useState()
-    // const [categories, setCategories] = useState([])
+    const [imgUrl, setImgUrl] = useState('');
     const categoryOption = categories.map(category => {
         return {
             label: category.name,
             value: category.categoryId,
         }
     })
+
+    const [progresspercent, setProgresspercent] = useState(0);
+
+    const handleSubmit = (e) => {
+        // e.preventDefault()
+        const file = e.target?.files[0]
+
+        if (!file) return;
+
+        console.log("file", file);
+
+        const storageRef = ref(storage, `collections/${file.name}`);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on("state_changed",
+            (snapshot) => {
+                const progress =
+                    Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+                setProgresspercent(progress);
+            },
+            (error) => {
+                alert(error);
+            },
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    console.log(downloadURL);
+                    setImgUrl(downloadURL)
+                });
+            }
+        );
+    }
+
     const createCollection = async (e) => {
         e.preventDefault()
+
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         const signer = provider.getSigner()
-        if (!file) {
-            console.log('no file available');
-            return
-        }
-        const url = await uploadFile(file)
-        console.log(url);
+        // await uploadImage(file)
+        // console.log(imgUrl);
         // const created = await ipfs.add(file);
         // const url = `https://ipfs.io/ipfs/${created.path}`;
         const collectionContract = new ethers.Contract(collectionAddress, Collection.abi, signer)
-        const tx = await collectionContract.createCollection(url, collectionData.category, collectionData.name, collectionData.description)
+        const tx = await collectionContract.createCollection(imgUrl, collectionData.category, collectionData.name, collectionData.description)
         await tx.wait()
         console.log('collection created');
     }
-
-    useEffect(() => {
-        // getToken()
-        // console.log('imageBuffer', imageBuffer);
-    }, [])
 
     return (
         <div className='bg-dark p-5'>
@@ -70,7 +94,7 @@ export default function nft() {
                         <div class="col-sm-10">
                             <label role="button" tabindex="0" for="image" class="col-sm-2 col-form-label">
                                 <img
-                                    src={collectionData.image}
+                                    src={imgUrl != '' ? imgUrl : collectionData.image}
                                     alt="Picture of the author"
                                     width={100}
                                     height={100}
@@ -79,12 +103,7 @@ export default function nft() {
                             </label>
                             <input
                                 type="file"
-                                onChange={(e) => {
-                                    if (e.target.files.length) {
-                                        setFile(e.target.files[0])
-                                        setCollectionData({ ...collectionData, image: URL.createObjectURL(e.target.files[0]) })
-                                    }
-                                }}
+                                onChange={(e) => { handleSubmit(e) }}
                                 class="form-control d-none"
                                 id="image" />
                         </div>

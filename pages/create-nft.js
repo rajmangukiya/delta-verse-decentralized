@@ -14,6 +14,8 @@ import { nftmarketaddress, nftaddress, collectionAddress } from '../config.js'
 
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
 import Collection from '../artifacts/contracts/Collection.sol/Collection.json'
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
+import { storage } from '../firebase'
 
 let provider, signer, nftContract, collectionContract;
 
@@ -27,32 +29,52 @@ export default function nft() {
         rarity: null,
         // blockchain: ''
     })
-    const [file, setFile] = useState()
-    // const blockChains = [
-    //     { label: 'mainnet', value: 'mainnet' },
-    //     { label: 'kovan', value: 'kovan' },
-    // ]
-    const [collections, setCollections] = useState([])
+    const [imgUrl, setImgUrl] = useState('');
+    const [collections, setCollections] = useState([]);
+    const [progresspercent, setProgresspercent] = useState(0);
+
+    const handleSubmit = (e) => {
+        const file = e.target?.files[0]
+
+        if (!file) return;
+
+        console.log("file", file);
+
+        const storageRef = ref(storage, `nfts/${file.name}`);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on("state_changed",
+            (snapshot) => {
+                const progress =
+                    Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+                setProgresspercent(progress);
+            },
+            (error) => {
+                alert(error);
+            },
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    console.log(downloadURL);
+                    setImgUrl(downloadURL)
+                });
+            }
+        );
+    }
 
     const createNft = async (e) => {
         e.preventDefault()
 
-        if (!file) {
-            console.log('no file available');
-            return
-        }
-        console.log('image uploading');
-        const created = await ipfs.add(file);
-        const url = `https://ipfs.io/ipfs/${created.path}`;
+        // const created = await ipfs.add(file);
+        // const url = `https://ipfs.io/ipfs/${created.path}`;
         console.log('image uploaded', {
-            url,
+            imgUrl,
             collection: nftData.collection,
             name: nftData.name,
             description: nftData.description,
             link: nftData.link,
             rarity: nftData.rarity
         });
-        const tx = await nftContract.createToken(url, nftData.collection, nftData.name, nftData.description, nftData.link, nftData.rarity)
+        const tx = await nftContract.createToken(imgUrl, nftData.collection, nftData.name, nftData.description, nftData.link, nftData.rarity)
         await tx.wait()
         console.log('nft created');
     }
@@ -99,7 +121,7 @@ export default function nft() {
                         <div class="col-sm-10">
                             <label role="button" tabindex="0" for="image" class="col-sm-2 col-form-label">
                                 <img
-                                    src={nftData.image}
+                                    src={imgUrl != '' ? imgUrl : nftData.image}
                                     alt="Picture of the author"
                                     width={100}
                                     height={100}
@@ -108,17 +130,7 @@ export default function nft() {
                             </label>
                             <input
                                 type="file"
-                                onChange={(e) => {
-                                    if (e.target.files.length) {
-                                        // const reader = new window.FileReader()
-                                        // reader.readAsArrayBuffer(e.target.files[0])
-                                        // reader.onLoadend = () => {
-                                        //     setImageBuffer(Buffer(reader.result))
-                                        // }
-                                        setFile(e.target.files[0])
-                                        setNftData({ ...nftData, image: URL.createObjectURL(e.target.files[0]) })
-                                    }
-                                }}
+                                onChange={(e) => { handleSubmit(e) }}
                                 class="form-control d-none"
                                 id="image" />
                         </div>

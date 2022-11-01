@@ -17,7 +17,7 @@
     "chai": "^4.3.4",
     "ethereum-waffle": "^3.4.0",
     "ethers": "^5.6.2",
-    "firebase-admin": "^11.0.1",
+    "firebase": "^9.13.0",
     "get-eth-price": "^1.0.0",
     "hardhat": "^2.4.1",
     "ipfs-api": "^26.1.2",
